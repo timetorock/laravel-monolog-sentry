@@ -37,11 +37,9 @@ class MonologSentryServiceProvider extends ServiceProvider
     private function bootstrapRaven()
     {
         $sentryDsn = config('sentry.dsn', null);
-        $sentryOptions = config('sentry.options', []);
 
         if (!empty($sentryDsn)) {
-            $client = new Raven_Client($sentryDsn, $sentryOptions);
-            $handler = new RavenHandler($client);
+            $handler = new RavenHandler(app('sentry'));
             $handler->setFormatter(new LineFormatter("%message% %context% %extra%\n"));
 
             $monolog = Log::getMonolog();
