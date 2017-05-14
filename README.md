@@ -39,6 +39,24 @@ You can find more details about the available options in Raven using this link:
 
 [https://github.com/getsentry/raven-php#configuration](https://github.com/getsentry/raven-php#configuration)
 
+By default notification would be send for `warning` level and more.
+
+You can change log level with `sentry.level` config option, must be a Monolog number.
+
+`Monolog\Logger` levels:
+
+```
+    DEBUG = 100;
+    INFO = 200;
+    NOTICE = 250;
+    WARNING = 300;
+    ERROR = 400;
+    CRITICAL = 500;
+    ALERT = 550;
+    EMERGENCY = 600;
+```
+
+
 ## Testing
 
 To test if your Sentry application is correctly grabbing your logs, simply launch `php artisan tinker` and execute a sample log like so:

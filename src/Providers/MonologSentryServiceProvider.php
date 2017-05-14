@@ -2,11 +2,12 @@
 
 namespace Timetorock\LaravelMonologSentry\Providers;
 
+use Log;
+use Monolog\Logger;
 use Illuminate\Support\ServiceProvider;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RavenHandler;
 use Raven_Client;
-use Log;
 
 class MonologSentryServiceProvider extends ServiceProvider
 {
@@ -18,7 +19,7 @@ class MonologSentryServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->bootstrapRaven();
+        $this->bootstrap();
     }
 
     /**
@@ -32,14 +33,12 @@ class MonologSentryServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstraps Raven and Monolog together
+     * Bootstraps RavenHandler and Monolog together
      */
-    private function bootstrapRaven()
+    private function bootstrap()
     {
-        $sentryDsn = config('sentry.dsn', null);
-
-        if (!empty($sentryDsn)) {
-            $handler = new RavenHandler(app('sentry'));
+        if (app()->bound('sentry')) {
+            $handler = new RavenHandler(app('sentry'), config('sentry.level', Logger::WARNING));
             $handler->setFormatter(new LineFormatter("%message% %context% %extra%\n"));
 
             $monolog = Log::getMonolog();
