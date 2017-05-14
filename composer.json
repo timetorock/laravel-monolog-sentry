@@ -20,5 +20,5 @@
             "email": "alejandronat@gmail.com"
         }
     ],
-    "minimum-stability": "master"
+    "minimum-stability": "dev"
 }
