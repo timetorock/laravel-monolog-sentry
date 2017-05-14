@@ -1,0 +1,24 @@
+{
+    "name": "timetorock/laravel-monolog-sentry",
+    "description": "Laravel 5.4 library for integration Monolog with Sentry",
+    "type": "library",
+    "keywords": ["laravel", "sentry-laravel", "monolog", "sentry", "log", "logs", "laravel-logs"],
+    "homepage": "https://github.com/timetorock/laravel-monolog-sentry",
+    "require": {
+        "illuminate/support": "5.*",
+        "sentry/sentry-laravel": "0.7.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Timetorock\\LaravelMonologSentry\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aleksandr Natalenko",
+            "email": "alejandronat@gmail.com"
+        }
+    ],
+    "minimum-stability": "master"
+}
