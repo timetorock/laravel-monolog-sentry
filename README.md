@@ -1,19 +1,22 @@
-# Monolog with Sentry for Laravel 5.4
+# Monolog Sentry for Laravel 5.x
 
 [![Software License][ico-license]](LICENSE.md)
 
-Laravel 5.4 library for integration Monolog errors with Sentry [sentry-laravel](https://github.com/getsentry/sentry-laravel).
+Laravel 5.x library for integration Monolog errors with Sentry [sentry-laravel](https://github.com/getsentry/sentry-laravel).
 
 This library implies already installed [sentry-laravel](https://github.com/getsentry/sentry-laravel).
 
+## Installation
 
-## Install
-
-Go to the root of your Laravel 5.4 project and run the following command:
+Go to the root of your Laravel project and run the following command:
 
 ``` bash
 composer require timetorock/laravel-monolog-sentry
 ```
+
+## Laravel 5.4 or earlier
+
+(Service will be auto-discovered by Laravel 5.5+)
 
 Then in your `config/app.php` add the `MonologSentryServiceProvider` to your `providers` array
 
