@@ -10,6 +10,14 @@ This library implies already installed [sentry-laravel](https://github.com/getse
 
 Go to the root of your Laravel project and run the following command:
 
+Laravel 5.4 or earlier:
+
+``` bash
+composer require timetorock/laravel-monolog-sentry 1.3
+```
+
+Laravel 5.5+:
+
 ``` bash
 composer require timetorock/laravel-monolog-sentry
 ```

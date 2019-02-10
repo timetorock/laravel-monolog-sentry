@@ -12,6 +12,10 @@ use Raven_Client;
 class MonologSentryServiceProvider extends ServiceProvider
 {
 
+    const SENTRY = 'sentry';
+    const SENTRY_LEVEL = 'sentry.level';
+    const MONOLOG_DRIVER = 'monolog';
+
     /**
      * Bootstrap any application services.
      *
@@ -37,11 +41,11 @@ class MonologSentryServiceProvider extends ServiceProvider
      */
     private function bootstrap()
     {
-        if (app()->bound('sentry')) {
-            $handler = new RavenHandler(app('sentry'), config('sentry.level', Logger::WARNING));
+        if (app()->bound(self::SENTRY)) {
+            $handler = new RavenHandler(app(self::SENTRY), config(self::SENTRY_LEVEL, Logger::WARNING));
             $handler->setFormatter(new LineFormatter("%message% %context% %extra%\n"));
 
-            $monolog = Log::getMonolog();
+            $monolog = Log::driver(self::MONOLOG_DRIVER);
             $monolog->pushHandler($handler);
         }
     }
