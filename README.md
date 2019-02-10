@@ -28,13 +28,13 @@ Then in your `config/app.php` add the `MonologSentryServiceProvider` to your `pr
 ),
 ```
 
+## Configuration
+
 Your `config/sentry.php` file must have DSN from your Sentry project.
 
 ```php
 'dsn'     => 'https://***:***@sentry.yourdomain.com/{project}'
 ```
-
-## Configuration
 
 You can configure Raven through the `config/sentry.php` config file. All the available options are already in there together with their default values.
 
