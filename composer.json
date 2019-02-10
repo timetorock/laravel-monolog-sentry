@@ -23,7 +23,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Timetorock\\LaravelMonologSentry\\Providers\\MonologSentryServiceProvider",
+                "Timetorock\\LaravelMonologSentry\\Providers\\MonologSentryServiceProvider"
             ]
         }
     }
