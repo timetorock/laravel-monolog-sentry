@@ -43,7 +43,7 @@ class MonologSentryServiceProvider extends ServiceProvider
     {
         if (app()->bound(self::SENTRY)) {
             $handler = new RavenHandler(app(self::SENTRY), config(self::SENTRY_LEVEL, Logger::WARNING));
-            $handler->setFormatter(new LineFormatter("%message% %context% %extra%\n"));
+            $handler->setFormatter(new LineFormatter("%message% %context%\n"));
 
             $monolog = Log::driver(self::MONOLOG_DRIVER);
             $monolog->pushHandler($handler);
