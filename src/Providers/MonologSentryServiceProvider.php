@@ -14,7 +14,6 @@ class MonologSentryServiceProvider extends ServiceProvider
 
     const SENTRY = 'sentry';
     const SENTRY_LEVEL = 'sentry.level';
-    const MONOLOG_DRIVER = 'monolog';
 
     /**
      * Bootstrap any application services.
@@ -45,7 +44,10 @@ class MonologSentryServiceProvider extends ServiceProvider
             $handler = new RavenHandler(app(self::SENTRY), config(self::SENTRY_LEVEL, Logger::WARNING));
             $handler->setFormatter(new LineFormatter("%message% %context%\n"));
 
-            $monolog = Log::driver(self::MONOLOG_DRIVER);
+            /**
+             * @var $monolog Logger
+             */
+            $monolog = Log::driver();
             $monolog->pushHandler($handler);
         }
     }
